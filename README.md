@@ -9,7 +9,7 @@ Here is described much of the logic of how this application works.
 Follow the links below:  
 - [App class diagram](#)
 - [Requirements document](#)
-- [xxx](#)
+- [app design](https://www.figma.com/file/W6aQsdrZJYBs9r7aM9opJi/task_linux?node-id=0%3A1)
 
 ### Required to run the project  
 To execute this project on your machine you need to follow the steps:
