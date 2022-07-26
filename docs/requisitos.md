@@ -1,7 +1,6 @@
-﻿# **Functional requirements**
+# **Functional requirements**
 
 ## **Keep User**
-
 ### **[RF001] Register User**  
 - [ ] implementing.  
 
@@ -65,5 +64,5 @@ If you have good usability on the system, you will ensure that clear information
 Keep a good performance, don't activate the user more than 3s expecting access to any 1 screen.
 
 
-### - [ ] **[NF004] Security**
+### **[NF004] Security**
 The system must maintain secrecy as referring to a user, thus not allowing others to have access to tasks that were created by the same.
