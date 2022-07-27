@@ -52,6 +52,57 @@
 **Outputs and postconditions**:  
 - A new task registered.
 
+### **[RF005] Delete Task **  
+- [ ] implementing.  
+
+**Description:** Allows a user to delete a task.
+**Actors:** User.
+
+**Entries and preconditions**:
+- Login to the system;
+- Task data.
+
+**Outputs and postconditions**:  
+- task deleted.
+
+### **[RF006] Postpone deadline **  
+- [ ] implementing.  
+
+**Description:** Defer to the task's deadline, using the completion field of the task.
+**Actors:** User.
+
+**Entries and preconditions**:
+- Login to the system;
+- Task data.
+
+**Outputs and postconditions**:  
+- updated task.
+
+### **[RF007] Mark task as complete **  
+- [ ] implementing.  
+
+**Description:** Allow user to Mark a task as complete.
+**Actors:** User.
+
+**Entries and preconditions**:
+- Login to the system;
+- Task data.
+
+**Outputs and postconditions**:  
+- none.
+
+### **[RF008] Import task in json format **  
+- [ ] implementing.  
+
+**Description:** Permitir importação de uma tarefa em formato json.
+**Actors:** User.
+
+**Entries and preconditions**:
+- Login to the system;
+- Task data.
+
+**Outputs and postconditions**:  
+- none.
 
 
 ___

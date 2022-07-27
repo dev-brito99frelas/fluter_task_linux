@@ -7,7 +7,7 @@ O framework [flutter](https://flutter.dev/), em conjunto com os pacotes [flutter
 ### Documentation
 Here is described much of the logic of how this application works.  
 Follow the links below:  
-- [App class diagram](#)
+- [App class diagram](https://github.com/Okiagari-Koboshi/fluter_task_linux/blob/main/docs/diagram_class.md)
 - [Requirements document](https://github.com/dev-brito99frelas/fluter_task_linux/blob/main/docs/requisitos.md)
 - [app design](https://www.figma.com/file/W6aQsdrZJYBs9r7aM9opJi/task_linux?node-id=0%3A1)
 
