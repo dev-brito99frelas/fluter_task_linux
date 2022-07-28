@@ -11,6 +11,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late List<Task> tasks = [];
+<<<<<<< HEAD
+=======
+  // final DateTime dataAtual = DateTime.now();
+>>>>>>> develop
   final TextEditingController tarefaController = TextEditingController();
   final TasksRepository tasksRepository = TasksRepository();
 
@@ -44,11 +48,19 @@ class _HomeState extends State<Home> {
                   flex: 1,
                   child: ElevatedButton(
                     onPressed: () {
+                      Task novo = Task(tarefaController.text, "1",
+                          "Qualquer descrição", DateTime.now(), "5");
                       setState(() {
+<<<<<<< HEAD
                         tasks.add(Task(tarefaController.text, tarefaController.text, tarefaController.text));
                         tasksRepository.armazenarDados(tasks);
                         tarefaController.clear();
+=======
+                        tasks.add(novo);
+>>>>>>> develop
                       });
+                      tasksRepository.armazenarDados(tasks);
+                      tarefaController.clear();
                     },
                     child: const Text("+"),
                   ),
@@ -63,18 +75,30 @@ class _HomeState extends State<Home> {
                 for (Task iterator in tasks)
                   ListTile(
                     leading: const Icon(Icons.assignment, size: 24.0),
+<<<<<<< HEAD
                     title: Text('Tarefa: ${iterator.nameTask}'),
+=======
+                    title: Text('Tarefa: ${iterator.name}'),
+>>>>>>> develop
                     subtitle: const Text('Tarefa: 20/11/2020'),
                     trailing: IconButton(
                       icon: const Icon(Icons.delete),
                       onPressed: () {
                         // ignore: avoid_print
+<<<<<<< HEAD
                         print("delete : ${iterator.nameTask}");
+=======
+                        print("delete : ${iterator.name}");
+>>>>>>> develop
                       },
                     ),
                     onTap: () {
                       // ignore: avoid_print
+<<<<<<< HEAD
                       print(":: ${iterator.nameTask}");
+=======
+                      print(":: ${iterator.name}");
+>>>>>>> develop
                     },
                   ),
               ],
