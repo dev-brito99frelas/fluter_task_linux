@@ -92,7 +92,6 @@ class _LoginState extends State<Login> {
   }
 
   void onchangedContext(String dado) {}
-
   void onchangedContextPassword(String dado) {}
   void onPressedTBEsqueceu() {}
   void onPressedTBCadastre() {}

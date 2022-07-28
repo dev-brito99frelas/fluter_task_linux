@@ -1,3 +1,5 @@
+import 'package:fluter_task_linux/models/task.dart';
+import 'package:fluter_task_linux/repositories/tasks_repositories.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -8,9 +10,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> tasks = [];
+  late List<Task> tasks = [];
   final TextEditingController tarefaController = TextEditingController();
-  late String iterator;
+  final TasksRepository tasksRepository = TasksRepository();
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,8 @@ class _HomeState extends State<Home> {
                   child: ElevatedButton(
                     onPressed: () {
                       setState(() {
-                        tasks.add(tarefaController.text);
+                        tasks.add(Task(tarefaController.text, tarefaController.text, tarefaController.text));
+                        tasksRepository.armazenarDados(tasks);
                         tarefaController.clear();
                       });
                     },
@@ -57,21 +60,21 @@ class _HomeState extends State<Home> {
             child: ListView(
               shrinkWrap: true,
               children: [
-                for (iterator in tasks)
+                for (Task iterator in tasks)
                   ListTile(
                     leading: const Icon(Icons.assignment, size: 24.0),
-                    title: Text('Tarefa $iterator'),
+                    title: Text('Tarefa: ${iterator.nameTask}'),
                     subtitle: const Text('Tarefa: 20/11/2020'),
                     trailing: IconButton(
                       icon: const Icon(Icons.delete),
                       onPressed: () {
                         // ignore: avoid_print
-                        print("delete $iterator");
+                        print("delete : ${iterator.nameTask}");
                       },
                     ),
                     onTap: () {
                       // ignore: avoid_print
-                      print(":$iterator");
+                      print(":: ${iterator.nameTask}");
                     },
                   ),
               ],
