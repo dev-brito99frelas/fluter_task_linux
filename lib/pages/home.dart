@@ -8,13 +8,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> tasks = [
-    "example 1",
-    "example 2",
-    "example 3",
-    "example 4",
-    "example 5"
-  ];
+  List<String> tasks = [];
   final TextEditingController tarefaController = TextEditingController();
   late String iterator;
 
@@ -47,34 +41,41 @@ class _HomeState extends State<Home> {
                 Expanded(
                   flex: 1,
                   child: ElevatedButton(
-                    onPressed: onPressedAdd,
+                    onPressed: () {
+                      setState(() {
+                        tasks.add(tarefaController.text);
+                        tarefaController.clear();
+                      });
+                    },
                     child: const Text("+"),
                   ),
                 )
               ],
             ),
           ),
-          ListView(
-            shrinkWrap: true,
-            children: [
-              for (iterator in tasks)
-                ListTile(
-                  leading: const Icon(Icons.assignment, size: 24.0),
-                  title: Text('Tarefa $iterator'),
-                  subtitle: const Text('Tarefa: 20/11/2020'),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.delete),
-                    onPressed: () {
+          Flexible(
+            child: ListView(
+              shrinkWrap: true,
+              children: [
+                for (iterator in tasks)
+                  ListTile(
+                    leading: const Icon(Icons.assignment, size: 24.0),
+                    title: Text('Tarefa $iterator'),
+                    subtitle: const Text('Tarefa: 20/11/2020'),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: () {
+                        // ignore: avoid_print
+                        print("delete $iterator");
+                      },
+                    ),
+                    onTap: () {
                       // ignore: avoid_print
-                      print("delete $iterator");
+                      print(":$iterator");
                     },
                   ),
-                  onTap: () {
-                    // ignore: avoid_print
-                    print(":$iterator");
-                  },
-                ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
@@ -82,7 +83,4 @@ class _HomeState extends State<Home> {
   }
 
   void onchangedTarefa(String algomudou) {}
-  void onPressedAdd() {
-    tarefaController.clear();
-  }
 }
