@@ -6,16 +6,17 @@ import 'package:fluter_task_linux/models/task.dart';
 class TasksRepository {
   late SharedPreferences shared;
 
-  TasksRepository() {
-    SharedPreferences.getInstance().then((value) => shared = value);
-  }
+  TasksRepository();
 
   void armazenarDados(List<Task> lista) {
     final String jsonString = json.encode(lista);
     shared.setString('tasks', jsonString);
   }
 
-  String recuperarDados() {
-    return shared.getString('key').toString();
+  Future<List<Task>> recuperarDados() async {
+    shared = await SharedPreferences.getInstance();
+    final String jsonstring = shared.getString('tasks') ?? '[]';
+    final List listdecoded = json.decode(jsonstring) as List;
+    return listdecoded.map((e) => Task.fromJson(e)).toList();
   }
 }

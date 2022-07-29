@@ -8,12 +8,13 @@ class Task {
   Task(this._name, this._taskId, this._description, this._deadline,
       this._studentId);
 
+  //outro construtor para pegar dados json e transformar em Objeto
   Task.fromJson(Map<String, dynamic> json)
-      : _name = json['_name'],
-        _taskId = json['_taskId'],
-        _description = json['_description'],
-        _deadline = json['_deadline'],
-        _studentId = json['_studentId'];
+      : _name = json['name'].toString(),
+        _taskId = json['taskId'].toString(),
+        _description = json['description'].toString(),
+        _deadline = DateTime.parse(json['deadline'].toString()),
+        _studentId = json['studentId'].toString();
 
   Map<String, dynamic> toJson() {
     return {

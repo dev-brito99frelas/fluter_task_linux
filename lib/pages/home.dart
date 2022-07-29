@@ -11,9 +11,18 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late List<Task> tasks = [];
-  // final DateTime dataAtual = DateTime.now();
   final TextEditingController tarefaController = TextEditingController();
   final TasksRepository tasksRepository = TasksRepository();
+
+  @override
+  void initState() {
+    super.initState();
+    tasksRepository.recuperarDados().then((value) => {
+          setState((() {
+            tasks = value;
+          }))
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,8 +80,12 @@ class _HomeState extends State<Home> {
                     trailing: IconButton(
                       icon: const Icon(Icons.delete),
                       onPressed: () {
+                        setState(() {
+                          tasks.remove(iterator);
+                        });
                         // ignore: avoid_print
                         print("delete : ${iterator.name}");
+                        tasksRepository.armazenarDados(tasks);
                       },
                     ),
                     onTap: () {
